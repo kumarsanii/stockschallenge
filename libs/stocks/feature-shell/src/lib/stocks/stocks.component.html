@@ -1,6 +1,7 @@
 <form [formGroup]="stockPickerForm">
   <mat-form-field>
     <input
+      aria-label=" "
       matInput
       placeholder="Symbol e.g AAPL"
       formControlName="symbol"
@@ -29,7 +30,7 @@
     </mat-select>
   </mat-form-field>
 
-  <button (click)="fetchQuote()" mat-raised-button>Go</button>
+  <button aria-label=" " (click)="fetchQuote()" mat-raised-button>Go</button>
 </form>
 
 <coding-challenge-chart [data$]="quotes$"></coding-challenge-chart>
