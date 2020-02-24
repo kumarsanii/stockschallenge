@@ -1,0 +1,22 @@
+{
+  "development": {
+    "port": 3333,
+    "host": "localhost",
+    "config_id": "development"
+  },
+  "testing": {
+    "port": 3332,
+    "host": "localhost",
+    "database": "my-app-db-test"
+  },
+  "staging": {
+    "config_id": "staging",
+    "port": 3335,
+    "host": "localhost"
+  },
+  "production": {
+    "config_id": "production",
+    "port": 3334,
+    "host": "localhost"
+  }
+}
