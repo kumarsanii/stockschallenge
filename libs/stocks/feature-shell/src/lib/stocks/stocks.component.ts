@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PriceQueryFacade } from '@coding-challenge/stocks/data-access-price-query';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 @Component({
   selector: 'coding-challenge-stocks',
@@ -13,6 +14,23 @@ export class StocksComponent implements OnInit {
   period: string;
 
   quotes$ = this.priceQuery.priceQueries$;
+
+  minDate = new Date(2021, 0, 1);
+  maxDate = new Date(2021, 0, 1);
+
+  events: string[] = [];
+
+  maxEvent(type: string, event: MatDatepickerInputEvent<Date>) {
+    this.events.push(`${type}: ${event.value}`);
+
+    this.maxDate = event.value;
+  }
+
+  minEvent(type: string, event: MatDatepickerInputEvent<Date>) {
+    this.events.push(`${type}: ${event.value}`);
+
+    this.minDate = new Date(event.value);
+  }
 
   timePeriods = [
     { viewValue: 'All available data', value: 'max' },
